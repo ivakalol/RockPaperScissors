@@ -79,15 +79,18 @@ else
 Console.WriteLine();
 Console.Write("Do you want to play another game? [Y] , [N]: ");
 
-string answer = Console.ReadLine();
+string answer = String.Empty;
+while (true)
+{
+    if (answer == "y" || answer == "Y")
+    {
+        Console.Write("Choose [r]ock, [p]aper, or [s]cissors: ");
+        goto playAgain;
+    }
+    else if ( answer ==  "N" || answer == "n")
+    {
+        Console.WriteLine("Thanks for playing!");
+        return;
+    }
+}
 
-if (answer == "y" || answer == "Y")
-{
-    Console.Write("Choose [r]ock, [p]aper, or [s]cissors: ");
-    goto playAgain;
-}
-else
-{
-    Console.WriteLine("Thanks for playing!");
-    return;
-}

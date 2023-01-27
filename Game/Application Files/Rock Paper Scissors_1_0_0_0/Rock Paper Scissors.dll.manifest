@@ -62,13 +62,13 @@
       <dsig:DigestValue>WXLZjGJHTpkboRZc9JVP4JVaui95lXUjGTBr5jsQjrE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Rock Paper Scissors.dll" size="5632">
+  <file name="Rock Paper Scissors.dll" size="6144">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>9PUwFZzsyqiXVvzumnRoqUVTb9EQGQ0GAvzG6YTdUGw=</dsig:DigestValue>
+      <dsig:DigestValue>vk2Vmb4LR25yRJf28u57dvMaaf9idVnq7VNXyy5r4TQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Rock Paper Scissors.exe" size="147968">
