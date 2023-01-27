@@ -1,2 +1,5 @@
-# RockPaperScissors
-My First Soft-Uni Project
+Here you will find a pretty interesting game made by the only one Ivaka
+
+=======================================================================
+Rock   Paper   Scissors
+=======================================================================
