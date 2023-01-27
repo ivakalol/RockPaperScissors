@@ -90,7 +90,8 @@ while (true)
     else if ( answer ==  "N" || answer == "n")
     {
         Console.WriteLine("Thanks for playing!");
-        return;
+        break;
     }
 }
+return 0;
 
