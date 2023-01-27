@@ -79,7 +79,7 @@ else
 Console.WriteLine();
 Console.Write("Do you want to play another game? [Y] , [N]: ");
 
-string answer = String.Empty;
+string answer = Console.ReadLine();
 while (true)
 {
     if (answer == "y" || answer == "Y")

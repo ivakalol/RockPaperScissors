@@ -68,7 +68,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vk2Vmb4LR25yRJf28u57dvMaaf9idVnq7VNXyy5r4TQ=</dsig:DigestValue>
+      <dsig:DigestValue>bXeI0Kok+gH4rP+IT9rjXWOrnifV6DE0rOauM/xGN4g=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Rock Paper Scissors.exe" size="147968">
