@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPS", "RPS\RPS.csproj", "{29FF6BB2-DE10-4A84-A9A7-AACE9AE87B33}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rock Paper Scissors", "RPS\Rock Paper Scissors.csproj", "{29FF6BB2-DE10-4A84-A9A7-AACE9AE87B33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
