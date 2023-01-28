@@ -29,7 +29,7 @@ else if (playerMove == "s" || playerMove == "S" ||
 
 else
 {
-    Console.Write("Invalid Input.. Are you stupid? Pleasae try again:  ");
+    Console.Write("Invalid Input.. Are you stupid? Please try again:  ");
     goto chooseAgain;
 }
 
@@ -89,8 +89,14 @@ while (true)
     }
     else if ( answer ==  "N" || answer == "n")
     {
-        Console.WriteLine("Thanks for playing!");
+        Console.WriteLine("It was a pleasure playing with you... Press any button to exit:  ");
+        answer = Console.ReadLine();
         break;
+    }
+    else
+    {
+        Console.Write("Incorect input please choose between [Y]es and [N]o:  ");
+        answer = Console.ReadLine();
     }
 }
 return 0;
