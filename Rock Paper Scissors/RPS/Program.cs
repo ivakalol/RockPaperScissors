@@ -1,103 +1,147 @@
-﻿const string Rock = "Rock";
-const string Paper = "Paper";
-const string Scissors = "Scissors";
+﻿bool playAgain = true;
+bool validAnswer = true;
 
-Console.Write("Choose [r]ock, [p]aper, or [s]cissors: ");
+Console.WriteLine("Let's play Rock Paper Scissors...");
+Console.Write("Please select your move ([R]ock / [P]aper / [S]cissors): ");
 
-chooseAgain:
-playAgain:
-
-string playerMove = Console.ReadLine();
-
-if (playerMove == "r" || playerMove == "R" || 
-    playerMove =="rock" || playerMove == "Rock")
+while (playAgain)
 {
-    playerMove = Rock;
+	string answer = Console.ReadLine().ToUpper();
+	CheckValidAnswer(ref answer, ref validAnswer);
+
+	string playerMove = string.Empty;
+    string computerMove = string.Empty;
+	
+    ValidateMove(ref playerMove, answer);
+	ChoseComputerMove(ref computerMove);
+	CheckWinner(computerMove, playerMove);
+
+	Console.WriteLine();
+	Console.Write("Do you want to play another one [Y]es / [Any Other Key]: ");
+	answer = Console.ReadLine().ToUpper();
+
+	if (answer == "Y")
+	{
+		Console.Write("Super, now choose again from [R]ock / [P]aper / [S]cissors: ");
+		Console.WriteLine();
+		playAgain = true;
+	}
+	else
+	{
+		playAgain = false;
+	}
 }
 
-else if(playerMove == "p" || playerMove == "P" || 
-    playerMove == "paper" || playerMove == "Paper")
+
+Console.WriteLine("---------------------");
+Console.WriteLine("It was a pleasure playing with you");
+Console.WriteLine("<3");
+
+
+void CheckValidAnswer(ref string answer, ref bool validAnswer)
 {
-    playerMove = Paper;
+	validAnswer = false;
+	while (!validAnswer)
+	{
+		if (answer == "R" || answer == "P" || answer == "S") { validAnswer = true; }
+		else
+		{
+			Console.Write("Please select a valid option ([R]/[P]/[S]): ");
+			answer = Console.ReadLine().ToUpper();
+		}
+	}
 }
 
-else if (playerMove == "s" || playerMove == "S" || 
-    playerMove == "scissors" || playerMove == "Scissors")
+void ValidateMove(ref string move, string answer)
 {
-    playerMove = Scissors;
+    if (answer == "R")
+	{
+		move = "ROCK";
+	}
+	else if (answer == "P")
+	{
+		move = "PAPER";
+	}
+	else
+	{
+		move = "SCISSORS";
+	}
 }
 
-else
+void ChoseComputerMove(ref string computerMove)
 {
-    Console.Write("Invalid Input.. Are you stupid? Please try again:  ");
-    goto chooseAgain;
-}
-
-
-Random random = new Random();
-int pcRandomMove = random.Next(1, 4);
-string computerMove = String.Empty;
-
-switch (pcRandomMove)
-{
-    case 1:
-        computerMove = Rock;
-        break;
-    case 2:
-        computerMove = Paper;
-        break;
-    case 3:
-        computerMove = Scissors;
-        break;
-}
-
-Console.WriteLine($"Ivo's beast PC chose {computerMove}");
-Console.WriteLine();
-
-if(
-    (playerMove == Rock && computerMove == Paper) 
-    || (playerMove == Paper && computerMove == Scissors)
-    || (playerMove == Scissors && computerMove == Rock)
-  )
-{
-    Console.WriteLine("LMFAO you lose!");
-}
-
-else if (
-    (playerMove == Rock && computerMove == Scissors)
-    || (playerMove == Paper && computerMove == Rock)
-    || (playerMove == Scissors && computerMove == Paper)
-  )
-{
-    Console.WriteLine("GG you win!");
-}
-
-else
-{
-    Console.WriteLine("This game was draw");
-}
-Console.WriteLine();
-Console.Write("Do you want to play another game? [Y] , [N]: ");
-
-string answer = Console.ReadLine();
-while (true)
-{
-    if (answer == "y" || answer == "Y")
-    {
-        Console.Write("Choose [r]ock, [p]aper, or [s]cissors: ");
-        goto playAgain;
-    }
-    else if ( answer ==  "N" || answer == "n")
-    {
-        Console.WriteLine("It was a pleasure playing with you... Press any button to exit:  ");
-        answer = Console.ReadLine();
-        break;
-    }
-    else
-    {
-        Console.Write("Incorect input please choose between [Y]es and [N]o:  ");
-        answer = Console.ReadLine();
+    Random randomMove = new Random();
+	
+	switch (randomMove.Next(1, 4))
+	{
+		case 1:
+			computerMove = "PAPER"; break;
+		case 2:
+			computerMove = "ROCK"; break;
+		case 3:
+			computerMove = "SCISSORS"; break;
     }
 }
-return 0;
 
+
+void CheckWinner(string computerMove, string playerMove)
+{
+	Console.WriteLine();
+	Console.WriteLine($"PLAYER: {playerMove}");
+    Console.WriteLine($"COMPUTER: {computerMove}");
+	Console.WriteLine();
+
+    switch (playerMove)
+	{
+		case "ROCK":
+			if (computerMove == "ROCK")
+			{
+				Console.WriteLine($"I also chose {playerMove.ToLower()}..");
+				Console.WriteLine("Its a draw : /");
+			}
+			else if (computerMove == "PAPER")
+            {
+                Console.WriteLine("Loser! I have beaten you with paper xD");
+            }
+			else if (computerMove == "SCISSORS")
+            {
+                Console.WriteLine("Damn you are really good at this game..");
+				Console.WriteLine("You win!");
+            }
+            break;
+
+		case "SCISSORS":
+            if (computerMove == "ROCK")
+            {
+                Console.WriteLine("Loser! I have beaten you with paper xD");
+            }
+            else if (computerMove == "PAPER")
+            {
+                Console.WriteLine("Damn you are really good at this game..");
+                Console.WriteLine("You win!");
+            }
+            else if (computerMove == "SCISSORS")
+            {
+                Console.WriteLine($"I also chose {playerMove.ToLower()}..");
+                Console.WriteLine("Its a draw : /");
+            }
+            break;
+
+		case "PAPER":
+            if (computerMove == "ROCK")
+            {
+                Console.WriteLine("Damn you are really good at this game..");
+				Console.WriteLine("You win!");
+            }
+            else if (computerMove == "PAPER")
+            {
+                Console.WriteLine($"I also chose {playerMove.ToLower()}..");
+                Console.WriteLine("Its a draw : /");
+            }
+            else if (computerMove == "SCISSORS")
+            {
+                Console.WriteLine("Loser! I have beaten you with paper xD");
+            }
+            break;
+	}
+}
